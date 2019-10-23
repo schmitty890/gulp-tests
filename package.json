@@ -18,14 +18,13 @@
   },
   "homepage": "https://github.com/schmitty890/gulp-tests#readme",
   "devDependencies": {
-    "@babel/core": "^7.6.4",
-    "@babel/preset-env": "^7.6.3",
-    "browser-sync": "^2.26.7",
-    "del": "^5.1.0",
     "gulp": "^3.9.1",
     "gulp-clean": "^0.4.0",
+    "gulp-clean-css": "^4.2.0",
     "gulp-concat": "^2.6.1",
     "gulp-less": "^4.0.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-uglify": "^3.0.2",
     "run-sequence": "^2.2.1"
   },
   "dependencies": {}

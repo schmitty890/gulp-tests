@@ -4,6 +4,9 @@ const clean = require('gulp-clean');
 const concat = require('gulp-concat');
 const less = require('gulp-less');
 const gutil = require('gulp-util');
+const uglify = require('gulp-uglify');
+const rename = require('gulp-rename');
+const cleanCSS = require('gulp-clean-css');
 
 // start gulp task by cleaning then running serve
 gulp.task('default', function(done) {
@@ -27,6 +30,9 @@ gulp.task('less', function() {
   return gulp.src('less/styles.less')
     .pipe(less())
     .pipe(gulp.dest('build/css'))
+    .pipe(cleanCSS())
+    .pipe(rename('styles.min.css'))
+    .pipe(gulp.dest('build/css'))
 });
 
 // concat js files in the js folder and build them to the build/js folder
@@ -37,6 +43,8 @@ gulp.task('concatScripts', function() {
   ])
   .pipe(concat('app.js'))
   .pipe(gulp.dest('build/js'))
+  .pipe(rename('app.min.js'))
+  .pipe(uglify())
   .on('error', function(err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
   .pipe(gulp.dest('build/js'))
 });
